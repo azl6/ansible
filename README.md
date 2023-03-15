@@ -72,3 +72,11 @@ ansible all -m command -a "uptime"
 ```
 
 - A flag **-a** se refere aos argumentos do módulo.
+
+# Módulo Stat
+
+Verifica se um arquivo existe em um caminho nas máquinas
+
+```bash
+ansible all -m stat -a "path=<PATH_HERE>"
+```
