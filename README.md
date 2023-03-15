@@ -1,4 +1,6 @@
-# Setup inicial no control node
+# Setup inicial dos nodes
+
+**Atenção:** Isso deve ser rodado em **todos** os nodes, control ou managed.
 
 Ao criar o control-node, criar o usuário `ansadmin`
 
@@ -29,3 +31,5 @@ sudo service sshd restart
 # Instalando o Ansible
 
 Seguir o tutorial: https://ianodad.medium.com/how-to-install-ansible-2-on-aws-linux-2-ec2-ba0ffde42792
+
+O Ansible só deve ser instalado no control-node.
