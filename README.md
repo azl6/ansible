@@ -1,4 +1,4 @@
-# Primeiros passos
+# Setup necessário
 
 Ao criar o control-node, criar o usuário `ansadmin`
 
@@ -19,3 +19,9 @@ visudo
 Agora, deixar o arquivo `/etc/ssh/sshd_config` na seguinte configuração:
 
 ![image](https://user-images.githubusercontent.com/80921933/225207451-9b59c8a4-3201-4feb-a250-90b24e4a5178.png)
+
+Depois, reestartar o serviço de SSH
+
+```
+sudo service sshd restart
+```
