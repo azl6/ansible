@@ -48,6 +48,8 @@ Pronto! Agora, já podemos dar **ssh \<IP_MANAGED_NODE>** e se conectar a um man
 
 Podemos executar comandos especificando o módulo. Os módulos abordados no curso estão listados acima.
 
+# Módulo Ping
+
 Para executar um comando simples de ping, executamos:
 
 ```bash
@@ -58,3 +60,15 @@ ansible all -m ping
 - O **-m** especifica o módulo a ser usado
 
 ![image](https://user-images.githubusercontent.com/80921933/225442517-71ffc4bb-1ee5-40ae-aaa6-389caf220596.png)
+
+# Módulo Command
+
+Serve para executarmos comandos nas máquinas presentes no arquivo `/etc/ansible/hosts`
+
+O comando abaixo rodará o comando "uptime" em todas as máquinas gerenciadas pelo Ansible 
+
+```bash
+ansible all -m command -a "uptime"
+```
+
+- A flag **-a** se refere aos argumentos do módulo.
