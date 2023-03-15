@@ -1,4 +1,4 @@
-# Setup necessário
+# Setup inicial no control node
 
 Ao criar o control-node, criar o usuário `ansadmin`
 
@@ -24,4 +24,12 @@ Depois, reestartar o serviço de SSH
 
 ```
 sudo service sshd restart
+```
+
+# Instalando o Ansible
+
+```bash
+sudo yum install python
+sudo yum install python-pip
+pip install ansible
 ```
