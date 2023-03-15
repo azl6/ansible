@@ -80,3 +80,13 @@ Verifica se um arquivo existe em um caminho nas máquinas
 ```bash
 ansible all -m stat -a "path=<PATH_HERE>"
 ```
+
+# Módulo Yum
+
+Serve para instalar pacotes nas máquinas gerenciadas.
+
+Como geralmente esse comando necessita de privilégios root, adicionamos a flag **-b**, que significa "become" root.
+
+```bash
+ansible all -m yum -a "name=<PACKAGE_HERE_LIKE_git>" -b
+```
