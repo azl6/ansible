@@ -41,3 +41,17 @@ No **control-node**, adicionamos o IP privado (ou público, porém, o público s
 Depois, rodamos `ssh-copy-id \<IP_MANAGED_NODE>` (considerando que já criamos a chave id_rsa no control-node com o ssh-keygen).
 
 Pronto! Agora, já podemos dar **ssh \<IP_MANAGED_NODE>** e se conectar a um managed-node normalmente.
+
+# Módulos e executando os primeiros comandos
+
+IMGMODULOS
+
+Podemos executar comandos especificando o módulo. Os módulos abordados no curso estão listados acima.
+
+Para executar um comando simples de ping, executamos:
+
+```bash
+ansible all -m ping
+```
+
+RESULTADOPING
