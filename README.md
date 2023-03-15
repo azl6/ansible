@@ -28,8 +28,4 @@ sudo service sshd restart
 
 # Instalando o Ansible
 
-```bash
-sudo yum install python
-sudo yum install python-pip
-pip install ansible
-```
+Seguir o tutorial: https://ianodad.medium.com/how-to-install-ansible-2-on-aws-linux-2-ec2-ba0ffde42792
