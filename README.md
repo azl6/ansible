@@ -44,7 +44,7 @@ Pronto! Agora, já podemos dar **ssh \<IP_MANAGED_NODE>** e se conectar a um man
 
 # Módulos e executando os primeiros comandos
 
-IMGMODULOS
+![image](https://user-images.githubusercontent.com/80921933/225442369-8f9837e4-f2a2-4f52-81dd-1cb5beaf068a.png)
 
 Podemos executar comandos especificando o módulo. Os módulos abordados no curso estão listados acima.
 
@@ -54,4 +54,7 @@ Para executar um comando simples de ping, executamos:
 ansible all -m ping
 ```
 
-RESULTADOPING
+- O **all** significa todos as máquinas presentes no arquivo `/etc/ansible/hosts`
+- O **-m** especifica o módulo a ser usado
+
+![image](https://user-images.githubusercontent.com/80921933/225442517-71ffc4bb-1ee5-40ae-aaa6-389caf220596.png)
