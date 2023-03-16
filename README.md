@@ -380,3 +380,42 @@ Alternativamente **(deprecated)**, é possível usar **Ansible Variables**
         - telnet
         - ...
 ```
+
+# Ansible Variables
+
+Podemos definir variables em um playbook:
+
+```yaml
+---
+- hosts: all
+  become: true
+  vars:
+    pkg: git #############################
+  tasks:                                 #
+    - name: Install package in var pkg   # Usando a variável
+      yum:                               #
+        name: {{ pkg }} ##################
+```
+
+Também podemos criar um arquivo de variáveis e referenciá-lo no playbook:
+
+vim packages.yaml
+```yaml
+pkg: git
+```
+
+Referenciando o arquivo no playbook:
+
+```yaml
+---
+- hosts: all
+  become: true
+  vars_files: # Definição dos arquivos de vars
+    - packages.yaml
+  tasks:                                 
+    - name: Install package in var pkg   
+      yum:                               
+        name: {{ pkg }} 
+```
+
+
