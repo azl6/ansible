@@ -418,4 +418,10 @@ Referenciando o arquivo no playbook:
         name: {{ pkg }} 
 ```
 
+Também é possível passar variáveis na CLI com a flag `-e`
+
+```
+ansible-playbook myplaybook.yaml -e VARKEY=VARVALUE
+```
+
 
