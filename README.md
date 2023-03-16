@@ -101,11 +101,11 @@ ansible all -m user -a "name=<NAME>" -b
 
 # Ansible Inventory
 
-**Ansible Inventory** are the servers we'll run our commands into.
+**Ansible Inventory** são os servidores nos quais executaremos nossos comandos.
 
 ![image](https://user-images.githubusercontent.com/80921933/225504260-863363d1-60f1-4073-9a92-f2c9fc043306.png)
 
-Inside of the inventory file, we can specify groups, as such:
+Dentro do arquivo de inventory (hosts), podemos especificar grupos, como:
 
 vim /etc/ansible/hosts
 ```
@@ -115,7 +115,7 @@ vim /etc/ansible/hosts
 200.131.131.131
 ```
 
-After that, we can also specify in which groups we want to run our ansible commands:
+Depois disso, também podemos especificar em quais grupos queremos executar nossos comandos:
 
 ```bash
 ansible <GROUP> -m ping
@@ -123,11 +123,11 @@ ansible <GROUP> -m ping
 
 # The Ansible configuration file
 
-Ansible has a default **ansible.cfg** file, that is created in `/etc/ansible/ansible.cfg`.
+Ansible tem um arquivo padrão **ansible.cfg**, que é criado em `/etc/ansible/ansible.cfg`.
 
-We can change a bunch of Ansible's default behaviour on it.
+Podemos alterar vários comportamentos padrões do Ansible nele.
 
-Also, we can create our own **ansible.cfg** file. Ansible will look for the **ansible.cfg** file in the following order:
+Além disso, podemos criar nosso próprio arquivo **ansible.cfg**. O Ansible procurará o arquivo **ansible.cfg** na seguinte ordem:
 
 ```
 ANSIBLE_CONFIG (environment variable if set)
@@ -135,3 +135,19 @@ ansible.cfg (in the current directory)
 ~/.ansible.cfg (in the home directory)
 /etc/ansible/ansible.cfg
 ```
+
+# Ansible Playbooks
+
+Playbooks são uma forma de executarmos múltiplos comandos sequencialmente:
+
+```yaml
+---
+- hosts: all
+  become: true
+  tasks:
+    - user: name=jhon
+```
+
+Basta alterarmos o playbook da mesma forma que executamos os comandos na CLI, exemplo:
+- No lugar de **all**, poderíamos especificar um grupo
+- No lugar de **user**, poderíamos especificar outro módulo, assim como os argumentos do módulo depois do **:**
