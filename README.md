@@ -349,3 +349,17 @@ Podemos executar diferentes comandos para diferentes distros (ou outras condiç�
         state: absent
       when: ansible_os_family == "Debian"
 ```
+
+# Instalando múltiplos pacotes de uma só vez
+
+Módulos que instalam pacotes (package, yum, apt) podem instalar múltiplos pacotes de uma só vez:
+
+```yaml
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: install packages
+      yum:
+        name: ['git', 'wget', 'telnet', ...] # Definindo múltiplos pacotes a serem instalados
+```
