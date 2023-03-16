@@ -122,6 +122,23 @@ Usado para manipular (criar, deletar, etc) arquivos e/ou diretórios:
         state: touch # Pode ser alterado para performar diferentes ações no arquivo referenciado
 ```
 
+# Módulo copy
+
+Usado para copiar arquivos e/ou diretórios:
+
+```yaml
+**---
+- hosts: all
+  become: true
+  tasks:
+    - name: copying file /tmp/MECOPIA.txt to /home/ansadmin/MECOPIA.txt
+      copy:
+        src: /tmp/MECOPIA.txt
+        dest: /home/ansadmin/MECOPIA.txt
+        mode: 777
+        owner: john **
+```
+
 # Ansible Inventory
 
 **Ansible Inventory** são os servidores nos quais executaremos nossos comandos.
