@@ -98,3 +98,10 @@ Usado para criar um usuário.
 ```bash
 ansible all -m user -a "name=<NAME>" -b
 ```
+
+# Ansible Inventory
+
+**Ansible Inventory** are the servers we'll run our commands into.
+
+![image](https://user-images.githubusercontent.com/80921933/225504260-863363d1-60f1-4073-9a92-f2c9fc043306.png)
+
