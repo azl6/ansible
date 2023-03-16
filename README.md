@@ -149,10 +149,12 @@ Playbooks são uma forma de executarmos múltiplos comandos sequencialmente:
 vim createUser.yaml
 ```yaml
 ---
-- hosts: all
+- name: Playbook to create an user
+  hosts: all
   become: true
   tasks:
-    - user: name=jhon
+    - name: Creating the user jhon...
+      user: name=jhon
 ```
 
 Basta alterarmos o playbook da mesma forma que executamos os comandos na CLI, exemplo:
