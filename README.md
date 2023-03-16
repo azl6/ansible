@@ -15,7 +15,7 @@ sudo passwd ansadmin
 sudo mkdir /home/ansadmin -p && sudo chown ansadmin:ansadmin
 ```
 
-Adicionamos o novo usuário ao arquivo de sudoers
+Adicionamos o novo usuário ao arquivo de sudoers (no Ubuntu o primeiro **ALL** será um pouco diferente, mas não tem problema. O real importante é o **NOPASSWD: ALL**)
 
 (logado como root)
 ```bash
