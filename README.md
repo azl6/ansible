@@ -424,4 +424,30 @@ Também é possível passar variáveis na CLI com a flag `-e`
 ansible-playbook myplaybook.yaml -e VARKEY=VARVALUE
 ```
 
+# Tags
 
+Podemos taggear tasks e só rodar aquelas com as tags que queremos:
+
+vim playbook.yaml
+```yaml
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install git
+      yum:
+        name: git
+        state: installed
+        tags: install_git
+    
+    - name:Run uptime
+      command:
+        cmd: uptime
+      tags: run_uptime
+```
+
+Ao rodar o playbook, basta especificarmos a tag desejada, e.g:
+
+```bash
+ansible-playbook playbook.yaml --tags "install_git"
+```
