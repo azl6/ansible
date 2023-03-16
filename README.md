@@ -139,6 +139,21 @@ Usado para copiar arquivos e/ou diretórios:
         owner: john
 ```
 
+# Módulo service
+
+Usado para gerenciar services, como startar, stoppar, etc
+
+```yaml
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Start Nginx
+      service:
+        name: nginx
+        state: started
+```
+
 # Ansible Inventory
 
 **Ansible Inventory** são os servidores nos quais executaremos nossos comandos.
