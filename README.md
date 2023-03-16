@@ -221,7 +221,7 @@ ansible-playbook createUser.yaml
 
 Notify e Handlers servem para somente rodarmos uma task quando formos notificados de que outra já foi finalizada:
 
-```
+```yaml
 ---
 - hosts: all
   become: true
