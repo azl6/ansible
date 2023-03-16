@@ -140,6 +140,7 @@ ansible.cfg (in the current directory)
 
 Playbooks são uma forma de executarmos múltiplos comandos sequencialmente:
 
+vim createUser.yaml
 ```yaml
 ---
 - hosts: all
@@ -151,3 +152,9 @@ Playbooks são uma forma de executarmos múltiplos comandos sequencialmente:
 Basta alterarmos o playbook da mesma forma que executamos os comandos na CLI, exemplo:
 - No lugar de **all**, poderíamos especificar um grupo
 - No lugar de **user**, poderíamos especificar outro módulo, assim como os argumentos do módulo depois do **:**
+
+Para executar o playbook, executamos:
+
+```bash
+ansible-playbook createUser.yaml
+```
