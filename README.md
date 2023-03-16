@@ -120,3 +120,18 @@ After that, we can also specify in which groups we want to run our ansible comma
 ```bash
 ansible <GROUP> -m ping
 ```
+
+# The Ansible configuration file
+
+Ansible has a default **ansible.cfg** file, that is created in `/etc/ansible/ansible.cfg`.
+
+We can change a bunch of Ansible's default behaviour on it.
+
+Also, we can create our own **ansible.cfg** file. Ansible will look for the **ansible.cfg** file in the following order:
+
+```
+ANSIBLE_CONFIG (environment variable if set)
+ansible.cfg (in the current directory)
+~/.ansible.cfg (in the home directory)
+/etc/ansible/ansible.cfg
+```
