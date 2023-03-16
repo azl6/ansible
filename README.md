@@ -363,3 +363,20 @@ Módulos que instalam pacotes (package, yum, apt) podem instalar múltiplos paco
       yum:
         name: ['git', 'wget', 'telnet', ...] # Definindo múltiplos pacotes a serem instalados
 ```
+
+Alternativamente **(deprecated)**, é possível usar **Ansible Variables**
+
+```yaml
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: install packages
+      yum:
+        name: {{ packages }}
+      with_items:
+        - git
+        - wget
+        - telnet
+        - ...
+```
