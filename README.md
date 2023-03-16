@@ -216,3 +216,25 @@ Para executar o playbook, executamos:
 ```bash
 ansible-playbook createUser.yaml
 ```
+
+# Notify e Handlers
+
+Notify e Handlers servem para somente rodarmos uma task quando formos notificados de que outra já foi finalizada:
+
+```
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install nginx
+      package:
+        name: nginx
+        state: present
+      notify: Start Nginx #######
+                                # Match!
+  handlers:                     # O notify "notifica" uma task pelo NOME!
+    - name: Start Nginx #########
+      service:
+        name: nginx
+        state: started
+```
