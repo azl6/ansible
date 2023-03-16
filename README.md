@@ -9,6 +9,12 @@ sudo useradd ansadmin && \
 sudo passwd ansadmin 
 ```
 
+**Importante:** Em algumas distros, o useradd **não criará uma pasta no /home/**. Para tais casos, devemos também criar uma pasta para o usuário **ansadmin** e conceder-lhe ownership:
+
+```bash
+sudo mkdir /home/ansadmin -p && sudo chown ansadmin:ansadmin
+```
+
 Adicionamos o novo usuário ao arquivo de sudoers
 
 (logado como root)
