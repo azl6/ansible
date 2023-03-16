@@ -90,3 +90,11 @@ Como geralmente esse comando necessita de privilégios root, adicionamos a flag 
 ```bash
 ansible all -m yum -a "name=<PACKAGE_HERE_LIKE_git>" -b
 ```
+
+# Módulo User
+
+Usado para criar um usuário.
+
+```bash
+ansible all -m user -a "name=<NAME>"
+```
