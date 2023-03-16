@@ -107,6 +107,21 @@ Usado para criar um usuário.
 ansible all -m user -a "name=<NAME>" -b
 ```
 
+# Módulo file
+
+Usado para manipular (criar, deletar, etc) arquivos e/ou diretórios:
+
+```yaml
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: create file named CREATE.txt
+      file:
+        path: /home/ansadmin/CREATE.txt # Caminho do arquivo a ser criado
+        state: touch # Pode ser alterado para performar diferentes ações no arquivo referenciado
+```
+
 # Ansible Inventory
 
 **Ansible Inventory** são os servidores nos quais executaremos nossos comandos.
@@ -129,7 +144,7 @@ Depois disso, também podemos especificar em quais grupos queremos executar noss
 ansible <GROUP> -m ping
 ```
 
-# The Ansible configuration file
+# Ansible configuration file
 
 Ansible tem um arquivo padrão **ansible.cfg**, que é criado em `/etc/ansible/ansible.cfg`.
 
