@@ -269,3 +269,83 @@ Basta adicionarmos a flag `gather_facts: no` no script:
         path: /home/ansadmin/helloWorld
         state: absent
 ```
+
+# When
+
+A task de **Gathering Facts** retorna informações dos hosts gerenciados.
+
+Podemos usar o módulo **setup** para pegar tais informações pela CLI
+
+```
+ansible all -m setup | grep "RedHat" -i
+ansible all -m setup | grep "Debian" -i
+```
+
+Caso estejamos gerenciando hosts de diferentes distros, talvez alguns pacotes tenham nomes diferentes.
+
+Podemos executar diferentes comandos para diferentes distros (ou outras condições) com o **when**
+
+**Playbook para instalar httpd e apache2 em servidores RH e Ubuntu:**
+```yaml
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install httpd on RH
+      yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == "RedHat"
+      notify: Start httpd on RH
+
+    - name: Install apache2 on Debian/Ubuntu
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == "Debian"
+      notify: Start apache2 on Debian/Ubuntu
+  
+  handlers:
+    - name: Start httpd on RH
+      service: 
+        name: httpd
+        state: started
+
+    - name: Start apache2 on Debian/Ubuntu
+      service:
+        name: apache2
+        state: started
+```
+
+**Playbook para desinstalar httpd e apache2 em servidores RH e Ubuntu:**
+```yaml
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Stop httpd on RH
+      service:
+        name: httpd
+        state: stopped
+      when: ansible_os_family == "RedHat"
+      notify: Uninstall httpd on RH
+
+    - name: Stop apache2 on Debian/Ubuntu
+      service:
+        name: apache2
+        state: stopped
+      when: ansible_os_family == "Debian"
+      notify: Uninstall apache2 on Debian/Ubuntu
+
+  handlers:
+    - name: Uninstall httpd on RH
+      yum:
+        name: httpd
+        state: absent
+
+    - name: Uninstall apache2 on Debian/Ubuntu
+      apt:
+        name: apache2
+        state: absent
+      when: ansible_os_family == "Debian"
+```
