@@ -135,8 +135,8 @@ Usado para copiar arquivos e/ou diretórios:
       copy:
         src: /tmp/MECOPIA.txt
         dest: /home/ansadmin/MECOPIA.txt
-        mode: 777
-        owner: john **
+        mode: 0777 # Precisa do 0!
+        owner: john
 ```
 
 # Ansible Inventory
