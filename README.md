@@ -96,5 +96,5 @@ ansible all -m yum -a "name=<PACKAGE_HERE_LIKE_git>" -b
 Usado para criar um usuário.
 
 ```bash
-ansible all -m user -a "name=<NAME>"
+ansible all -m user -a "name=<NAME>" -b
 ```
