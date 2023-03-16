@@ -451,3 +451,23 @@ Ao rodar o playbook, basta especificarmos a tag desejada, e.g:
 ```bash
 ansible-playbook playbook.yaml --tags "install_git"
 ```
+
+# Ignore errors
+
+It is possible to add the `ignore_errors: yes` in any playbook's tasks to indicate that the playbook should continue further, even though a task failed.
+
+```yaml
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install git
+      yum:
+        name: git
+        state: installed
+      ignore_errors: yes ##### Ignore errors flag
+    
+    - name:Run uptime
+      command:
+        cmd: uptime
+```
