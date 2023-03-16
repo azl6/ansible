@@ -107,7 +107,7 @@ Usado para criar um usuário.
 ansible all -m user -a "name=<NAME>" -b
 ```
 
-# Módulo file
+# Módulo File
 
 Usado para manipular (criar, deletar, etc) arquivos e/ou diretórios:
 
@@ -122,7 +122,7 @@ Usado para manipular (criar, deletar, etc) arquivos e/ou diretórios:
         state: touch # Pode ser alterado para performar diferentes ações no arquivo referenciado
 ```
 
-# Módulo copy
+# Módulo Copy
 
 Usado para copiar arquivos e/ou diretórios:
 
@@ -139,7 +139,7 @@ Usado para copiar arquivos e/ou diretórios:
         owner: john
 ```
 
-# Módulo service
+# Módulo Service
 
 Usado para gerenciar services, como startar, stoppar, etc
 
@@ -152,6 +152,17 @@ Usado para gerenciar services, como startar, stoppar, etc
       service:
         name: nginx
         state: started
+```
+
+
+# Módulo Setup
+
+Usado para fazer um "gather facts" manual.
+
+Nos playbooks, usamos os facts para aplicar estruturas condicionais, e.g instalar apache2 em distros baseadas em Debian, e httpd em distros baseadas em Redhat.
+
+```bash
+ansible all -m setup
 ```
 
 # Ansible Inventory
