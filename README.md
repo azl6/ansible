@@ -105,3 +105,18 @@ ansible all -m user -a "name=<NAME>" -b
 
 ![image](https://user-images.githubusercontent.com/80921933/225504260-863363d1-60f1-4073-9a92-f2c9fc043306.png)
 
+Inside of the inventory file, we can specify groups, as such:
+
+vim /etc/ansible/hosts
+```
+[rhel]
+192.121.131.131
+[centos]
+200.131.131.131
+```
+
+After that, we can also specify in which groups we want to run our ansible commands:
+
+```bash
+ansible <GROUP> -m ping
+```
