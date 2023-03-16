@@ -89,6 +89,8 @@ ansible all -m stat -a "path=<PATH_HERE>"
 
 # Módulo Yum
 
+**Atenção:** O módulo **package** pode ser uma melhor opção, já que algumas distros usam yum, apt, pacman, etc... Com o módulo **package**, o Ansible consegue decidir qual gerenciador de pacotes ele usará.
+
 Serve para instalar pacotes nas máquinas gerenciadas.
 
 Como geralmente esse comando necessita de privilégios root, adicionamos a flag **-b**, que significa "become" root.
