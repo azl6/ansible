@@ -22,7 +22,7 @@ Adicionamos o novo usuário ao arquivo de sudoers
 visudo
 ```
 
-![image](https://user-images.githubusercontent.com/80921933/225225690-8a4c497b-c463-4d8f-862a-54fc8b1eb525.png)
+![image](https://user-images.githubusercontent.com/80921933/225700329-b0eb62fe-c8da-4fa2-85ae-2652aab6eedd.png)
 
 Agora, deixar o arquivo `/etc/ssh/sshd_config` na seguinte configuração:
 
