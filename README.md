@@ -373,7 +373,7 @@ Alternativamente **(deprecated)**, é possível usar **Ansible Variables**
   tasks:
     - name: install packages
       yum:
-        name: {{ packages }}
+        name: {{ item }}
       with_items:
         - git
         - wget
