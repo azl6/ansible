@@ -238,3 +238,23 @@ Notify e Handlers servem para somente rodarmos uma task quando formos notificado
         name: nginx
         state: started
 ```
+
+# Gathering Facts
+
+Podemos desativar a task de **Gathering Facts**, pois ela pode reduzir a performance de scripts rodando em múltiplos hosts.
+
+![image](https://user-images.githubusercontent.com/80921933/225729489-877f3879-b8e3-4e60-8dac-5d07576f2d75.png)
+
+Basta adicionarmos a flag `gather_facts: no` no script:
+
+```yaml
+---
+- hosts: all
+  become: true
+  gather_facts: no ##### Aqui!
+  tasks:
+    - name: Delete /home/ansadmin/helloWorld
+      file:
+        path: /home/ansadmin/helloWorld
+        state: absent
+```
