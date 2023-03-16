@@ -295,14 +295,14 @@ Podemos executar diferentes comandos para diferentes distros (ou outras condi√ß√
       yum:
         name: httpd
         state: present
-      when: ansible_os_family == "RedHat"
+      when: ansible_os_family == "RedHat" #### Uso do when!
       notify: Start httpd on RH
 
     - name: Install apache2 on Debian/Ubuntu
       apt:
         name: apache2
         state: present
-      when: ansible_os_family == "Debian"
+      when: ansible_os_family == "Debian" #### Uso do when!
       notify: Start apache2 on Debian/Ubuntu
   
   handlers:
@@ -327,14 +327,14 @@ Podemos executar diferentes comandos para diferentes distros (ou outras condi√ß√
       service:
         name: httpd
         state: stopped
-      when: ansible_os_family == "RedHat"
+      when: ansible_os_family == "RedHat" #### Uso do when!
       notify: Uninstall httpd on RH
 
     - name: Stop apache2 on Debian/Ubuntu
       service:
         name: apache2
         state: stopped
-      when: ansible_os_family == "Debian"
+      when: ansible_os_family == "Debian"  #### Uso do when!
       notify: Uninstall apache2 on Debian/Ubuntu
 
   handlers:
