@@ -500,3 +500,32 @@ files/main.yml - files that the role deploys.
 templates/main.yml - templates that the role deploys.
 meta/main.yml - metadata for the role, including role dependencies and optional Galaxy metadata such as platforms supported.
 ```
+
+Desta forma, basta inserirmos cada parte de nosso playbook em seu respectivo diretório.
+
+O arquivo tasks/main.yml, por exemplo, terá as tasks de nosso playbook, da seguinte forma:
+
+```yaml
+---
+# tasks file for first-role
+
+- name: Install httpd
+  yum:
+    name: httpd
+    state: installed
+```
+
+Considerando que todas as partes do playbook já foram colocados em seus respectivos diretórios, basta criarmos um arquivo principal que usa a role criada:
+
+**Importante:** \<ROLE_NAME> referencia a role criada com o comando `ansible-galaxy init <ROLE_NAME>`
+
+```yaml
+---
+- hosts: all
+  become: true
+  roles:
+    - <ROLE_NAME>
+```
+
+Pronto! Agora basta rodar `ansible-playbook` normalmente.
+
