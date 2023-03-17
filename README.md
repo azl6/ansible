@@ -471,3 +471,13 @@ It is possible to add the `ignore_errors: yes` in any playbook's tasks to indica
       command:
         cmd: uptime
 ```
+
+# Ansible Roles
+
+Servem para "quebrarmos" um playbook em diversas peças.
+
+Para iniciar:
+
+```bash
+ansible-galaxy init <ROLE_NAME>
+```
