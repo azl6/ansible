@@ -230,7 +230,9 @@ ansible-playbook createUser.yaml
 
 # Notify e Handlers
 
-Notify e Handlers servem para somente rodarmos uma task quando formos notificados de que outra já foi finalizada:
+Notify e Handlers servem para somente rodarmos uma task quando formos notificados de que outra já foi finalizada.
+
+**Atenção:** O **handlers** deve estar sempre no final do arquivo, já que tudo que estiver embaixo dele será considerado como um **handler**.
 
 ```yaml
 ---
@@ -476,8 +478,25 @@ It is possible to add the `ignore_errors: yes` in any playbook's tasks to indica
 
 Servem para "quebrarmos" um playbook em diversas peças.
 
-Para iniciar:
+Para iniciar uma role:
 
 ```bash
 ansible-galaxy init <ROLE_NAME>
+```
+
+Teremos um diretório criado com a seguinte estrutura:
+
+![image](https://user-images.githubusercontent.com/80921933/225807688-6ceff0f3-6f20-4da6-9352-0b928d692688.png)
+
+Os significados de cada diretório estão abaixo:
+
+```style
+tasks/main.yml - the main list of tasks that the role executes.
+handlers/main.yml - handlers, which may be used within or outside this role.
+library/my_module.py - modules, which may be used within this role (see Embedding modules and plugins in roles for more information).
+defaults/main.yml - default variables for the role (see Using Variables for more information). These variables have the lowest priority of any variables available, and can be easily overridden by any other variable, including inventory variables.
+vars/main.yml - other variables for the role (see Using Variables for more information).
+files/main.yml - files that the role deploys.
+templates/main.yml - templates that the role deploys.
+meta/main.yml - metadata for the role, including role dependencies and optional Galaxy metadata such as platforms supported.
 ```
